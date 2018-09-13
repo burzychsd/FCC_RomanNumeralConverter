@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Roman Numeral Converter</title>
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Shadows+Into+Light+Two" rel="stylesheet">
+	<link rel="stylesheet" href="./public/main.css" type="text/css">
+</head>
+<body>
+	<header>
+		<div id="logo-container">
+			<img src="./public/images/roman-logo.svg" alt="roman">
+		</div>
+		<h3>What Year is it?</h3>
+		<p>Convert to Roman Numeral System</p>
+	</header>
+	<main>
+		<input id="number" type="number" min="1" max="3999" placeholder="From 1 To 3999">
+		<div id="roman-numerals">
+			<h1 id="answer"></h1>
+		</div>
+	</main>
+	
+</body>
+<script>
+
+	const number = document.querySelector("#number");
+
+	function convertToRoman() {
+		let answer = document.querySelector("#answer");
+		let num = number.value;
+
+		const obj = { ones: { 1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX" }, tens: { 1: "X", 2: "XX", 3: "XXX", 4: "XL", 5: "L", 6: "LX", 7: "LXX", 8: "LXXX", 9: "XC" }, hundreds: { 1: "C", 2: "CC", 3: "CCC", 4: "CD", 5: "D", 6: "DC", 7: "DCC", 8: "DCCC", 9: "CM"}, thousands: { 1: "M", 2: "MM", 3: "MMM" } } 
+		 
+		 const str = num.toString();
+		 const arrOfNums = str.split("");
+
+		 arrOfNums.length === 1 ? answer.innerHTML = obj["ones"][arrOfNums[0]] : answer.innerHTML = arrOfNums.length === 2 ? answer.innerHTML = obj["tens"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["ones"][arrOfNums[1]] : "") : arrOfNums.length === 3 ? answer.innerHTML = obj["hundreds"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["tens"][arrOfNums[1]] : "") + (arrOfNums[2] > 0 ? obj["ones"][arrOfNums[2]] : "") : answer.innerHTML = arrOfNums.length === 4 ? obj["thousands"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["hundreds"][arrOfNums[1]] : "") + (arrOfNums[2] > 0 ? obj["tens"][arrOfNums[2]] : "") + (arrOfNums[3] > 0 ? obj["ones"][arrOfNums[3]] : "") : answer.innerHTML = "";
+	};
+
+	number.addEventListener('input', convertToRoman);
+
+</script>
+</html>
