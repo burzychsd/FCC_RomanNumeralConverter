@@ -36,7 +36,7 @@
 		 const str = num.toString();
 		 const arrOfNums = str.split("");
 
-		 arrOfNums.length === 1 ? answer.innerHTML = obj["ones"][arrOfNums[0]] : answer.innerHTML = arrOfNums.length === 2 ? answer.innerHTML = obj["tens"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["ones"][arrOfNums[1]] : "") : arrOfNums.length === 3 ? answer.innerHTML = obj["hundreds"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["tens"][arrOfNums[1]] : "") + (arrOfNums[2] > 0 ? obj["ones"][arrOfNums[2]] : "") : answer.innerHTML = arrOfNums.length === 4 ? obj["thousands"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["hundreds"][arrOfNums[1]] : "") + (arrOfNums[2] > 0 ? obj["tens"][arrOfNums[2]] : "") + (arrOfNums[3] > 0 ? obj["ones"][arrOfNums[3]] : "") : answer.innerHTML = "Can't Convert ;(";
+		 arrOfNums.length === 1 ? answer.innerHTML = obj["ones"][arrOfNums[0]] : answer.innerHTML = arrOfNums.length === 2 ? answer.innerHTML = obj["tens"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["ones"][arrOfNums[1]] : "") : arrOfNums.length === 3 ? answer.innerHTML = obj["hundreds"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["tens"][arrOfNums[1]] : "") + (arrOfNums[2] > 0 ? obj["ones"][arrOfNums[2]] : "") : answer.innerHTML = arrOfNums.length === 4 ? obj["thousands"][arrOfNums[0]] + (arrOfNums[1] > 0 ? obj["hundreds"][arrOfNums[1]] : "") + (arrOfNums[2] > 0 ? obj["tens"][arrOfNums[2]] : "") + (arrOfNums[3] > 0 ? obj["ones"][arrOfNums[3]] : "") : arrOfNums[0] > 3 ? answer.innerHTML = "Can't Convert ;(" : answer.innerHTML = "";
 	};
 
 	number.addEventListener('input', convertToRoman);
